@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- POM (project object model) version -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Package name -->
+    <groupId>com.nomadnest</groupId>
+    <!-- Maven uses this to create a jar file -->
+    <artifactId>nomad-nest-backend</artifactId>
+    <!-- snapshot means this is a development version -->
+    <!--  Maven treats SNAPSHOT versions as unstable or in-progress — so it checks for updates often -->
+    <!-- ready for release: change to 1.0.0  -->
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Nomad Nest</name>
+    <description>Backend for Nomad Nest</description>
+
+    <!-- properties (kind of defining variables that will be use project-wide. they are called maven properties. u can give any name to this properties like my.java or my-boot.version) -->
+    <properties>
+        <java.version>17</java.version>
+        <spring.boot.version>3.2.5</spring.boot.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- Spring Boot Starter Web: includes everything needed to create a web application -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <!-- Test Starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- Compiles Java code with correct version -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <!-- Packages Spring Boot app as executable jar -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
