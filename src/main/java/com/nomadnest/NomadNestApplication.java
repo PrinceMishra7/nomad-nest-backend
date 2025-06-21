@@ -1,9 +1,10 @@
 package com.nomadnest;
 
 import org.springframework.boot.SpringApplication;
-imoort org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class NomadNestApplication{
     public static void main(String[] args){
         SpringApplication.run(NomadNestApplication.class,args);
